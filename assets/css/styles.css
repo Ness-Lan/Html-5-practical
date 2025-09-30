@@ -34,3 +34,39 @@
   background: var(--brand-contrast);
   color: var(--brand);
 }
+/* Footer */
+footer {
+  background: var(--muted);
+  color: var(--brand-contrast);
+  padding: var(--space-3);
+  font-size: 0.9rem;
+}
+
+/* Flexbox container */
+.footer-container {
+  display: flex;
+  justify-content: space-between;   /* space between text and nav */
+  align-items: center;
+  flex-wrap: wrap;                  /* stack on small screens */
+  gap: var(--space-2);
+}
+
+/* Links inside footer */
+.footer-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.footer-links a {
+  color: var(--brand-contrast);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 4px;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  background: var(--brand-contrast);
+  color: var(--muted);
+}
+
