@@ -99,11 +99,7 @@ footer {
   padding: var(--space-3);
   border-radius: .5rem;
 }
-/* ===============================
-   STEP 4 – Typography & Components
-   =============================== */
 
-/* --- 4.1 Headings & text scale --- */
 h1 {
   font-size: var(--h1);
   margin-bottom: var(--space-3);
@@ -199,5 +195,97 @@ img, video {
   height: auto;
   border-radius: .25rem;
   display: block;
+}
+/* ===============================
+   STEP 5 – States & Motion
+   =============================== */
+
+/* --- 5.1 Focus states (accessibility) --- */
+a:focus, button:focus, summary:focus {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+/* --- 5.2 Hover states --- */
+a:hover,
+button:hover,
+.nav-links a:hover,
+.footer-links a:hover {
+  opacity: 0.85;
+}
+
+/* --- 5.3 Card hover effect (extra polish) --- */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --- 5.4 Simple fade-in animation (e.g. for hero image or card) --- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- 5.5 Respect reduced motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* --- Base: Mobile-first (default styles) --- */
+/* Already done: single-column layout, fluid images, readable line length */
+
+/* --- 6.1 Small screens (up to 480px) --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px; /* slightly smaller base font */
+  }
+
+  header nav,
+  .footer-links {
+    flex-direction: column;   /* stack nav links vertically */
+    align-items: flex-start;
+  }
+
+  .card {
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* --- 6.2 Medium screens (tablets: 481px – 768px) --- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 2fr 1fr;  /* keep 2-column layout */
+    gap: var(--space-3);
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.25rem; }
+}
+
+/* --- 6.3 Large screens (desktops: 769px – 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 3fr 1fr; /* wider main content */
+  }
+}
+
+/* --- 6.4 Extra-large screens (≥1280px) --- */
+@media (min-width: 1280px) {
+  .site-container {
+    max-width: 90ch; /* allow more width for big screens */
+  }
+
+  h1 { font-size: 2.5rem; }
 }
 
