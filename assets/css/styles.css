@@ -69,4 +69,35 @@ footer {
   background: var(--brand-contrast);
   color: var(--muted);
 }
+/* Main layout with CSS Grid */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;   /* main content = 2 parts, sidebar = 1 part */
+  gap: var(--space-4);              /* space between columns */
+  padding: var(--space-3);
+}
+
+/* On tablets & phones, stack columns */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;     /* single column layout */
+  }
+}
+
+/* Style article (main content) */
+.main-layout article {
+  background: var(--card-bg);
+  padding: var(--space-3);
+  border-radius: .5rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* Style aside (sidebar) */
+.main-layout aside {
+  background: var(--bg);
+  border: 1px solid var(--muted);
+  padding: var(--space-3);
+  border-radius: .5rem;
+}
+
 
